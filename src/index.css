@@ -1,8 +1,7 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Fonte e ajustes globais */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
@@ -11,7 +10,6 @@
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* Adiciona as definições para as classes de ícones do Material Design */
 @layer components {
   .material-icons,
   .material-icons-outlined {
@@ -37,4 +35,13 @@
   .material-icons-outlined {
     font-family: 'Material Icons Outlined';
   }
+} */
+
+@import "tailwindcss";
+
+/* Suas customizações (opcional) */
+@theme {
+  --color-primary: #0d1b2a;
+  --color-secondary: #00b4d8;
+  --color-bg: #f5f7fa;
 }

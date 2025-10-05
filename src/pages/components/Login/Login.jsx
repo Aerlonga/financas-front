@@ -1,25 +1,27 @@
 import React from "react";
+import { Lock, User } from "lucide-react";
+import imagemLogin from "../../../assets/imagemLogin.png";
+
 
 export default function Login() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-black">
+        <div className="min-h-screen flex items-center justify-center bg-white sm:bg-gray-50 p-4">
             <div
-                className="relative w-full max-w-[380px] bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden"
+                className="relative w-full max-w-[480px] bg-cover bg-center rounded-2xl shadow-2xl overflow-hidden"
                 style={{
-                    backgroundImage:
-                        "url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800')",
+                    backgroundImage: `url(${imagemLogin})`,
                 }}
             >
                 {/* Overlay translúcido */}
-                <div className="absolute inset-0 bg-blue-900/70" />
+                <div className="absolute inset-0 bg-[#002B60]/60" />
 
                 {/* Botão de cadeado */}
-                <button className="absolute top-4 right-4 z-20 bg-violet-200 rounded-full p-2 shadow-md hover:bg-violet-300 transition">
-                    <span className="material-icons text-[#5E2CA5] text-base">lock</span>
-                </button>
+                {/* <button className="absolute top-4 right-4 z-20 bg-violet-200 rounded-full p-2 shadow-md hover:bg-violet-300 transition">
+                    <Lock size={20} strokeWidth={2.5} className="text-[#5E2CA5]" />
+                </button> */}
 
                 {/* Conteúdo */}
-                <form className="relative z-10 flex flex-col gap-6 text-white px-8 py-10">
+                <form className="relative z-10 flex flex-col gap-6 text-white px-6 sm:px-8 py-10">
                     <h1 className="text-2xl font-bold text-center mb-4">
                         Acesse sua conta
                     </h1>
@@ -29,14 +31,13 @@ export default function Login() {
                         <label htmlFor="user" className="text-sm text-white pl-4">
                             Usuário
                         </label>
-                        <div className="flex items-center gap-3">
-                            <span className="material-icons-outlined text-white/80 text-2xl">
-                                person_outline
-                            </span>
+                        <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2">
+                            <User size={22} strokeWidth={2.2} className="text-[#002B60]" />
                             <input
                                 id="user"
                                 type="email"
-                                className="flex-1 bg-white text-gray-800 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                                className="flex-1 bg-transparent text-gray-800 focus:outline-none"
+                                autoComplete="username"
                             />
                         </div>
                     </div>
@@ -46,19 +47,18 @@ export default function Login() {
                         <label htmlFor="password" className="text-sm text-white pl-4">
                             Senha
                         </label>
-                        <div className="flex items-center gap-3">
-                            <span className="material-icons-outlined text-white/80 text-2xl">
-                                lock_outline
-                            </span>
+                        <div className="flex items-center gap-3 bg-white rounded-full px-4 py-2">
+                            <Lock size={22} strokeWidth={2.2} className="text-[#002B60]" />
                             <input
                                 id="password"
                                 type="password"
-                                className="flex-1 bg-white text-gray-800 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00B4D8]"
+                                className="flex-1 bg-transparent text-gray-800 focus:outline-none"
+                                autoComplete="current-password"
                             />
                         </div>
                         <a
                             href="#"
-                            className="block text-left text-sm italic text-white/80 hover:text-white mt-1 pl-12"
+                            className="block text-left text-sm italic text-white/80 hover:text-white mt-1 pl-4 cursor-pointer"
                         >
                             Esqueci minha senha
                         </a>
@@ -67,7 +67,7 @@ export default function Login() {
                     {/* Botão Entrar */}
                     <button
                         type="submit"
-                        className="mt-2 bg-blue-600 py-3 rounded-full font-semibold uppercase shadow-lg hover:bg-blue-700 transition"
+                        className="mt-2 bg-blue-600 py-3 rounded-full font-semibold uppercase shadow-lg hover:bg-blue-700 transition text-white cursor-pointer"
                     >
                         Entrar
                     </button>
@@ -82,7 +82,7 @@ export default function Login() {
                     {/* Google */}
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-3 bg-white text-gray-900 rounded-full py-2 font-semibold hover:bg-gray-100 transition shadow-md"
+                        className="flex items-center justify-center gap-3 bg-white text-gray-900 rounded-full py-2 font-semibold hover:bg-gray-100 transition shadow-md cursor-pointer"
                     >
                         <img
                             src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -95,7 +95,7 @@ export default function Login() {
                     {/* Facebook */}
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-3 bg-[#1877F2] text-white rounded-full py-2 font-semibold hover:bg-[#166FE5] transition shadow-md"
+                        className="flex items-center justify-center gap-3 bg-[#1877F2] text-white rounded-full py-2 font-semibold hover:bg-[#166FE5] transition shadow-md cursor-pointer"
                     >
                         <img
                             src="https://www.svgrepo.com/show/475647/facebook-color.svg"
