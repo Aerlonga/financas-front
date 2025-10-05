@@ -2,31 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonte e ajustes globais */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* cores globais */
-  --color-primary: #0d1b2a;
-  --color-secondary: #00b4d8;
-  --color-bg: #f5f7fa;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Adiciona as definições para as classes de ícones do Material Design */
+@layer components {
+  .material-icons,
+  .material-icons-outlined {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+  }
 
-body, html, #root {
-  height: 100%;
-  background-color: var(--color-bg);
-  color: #222;
+  .material-icons {
+    font-family: 'Material Icons';
+  }
+  .material-icons-outlined {
+    font-family: 'Material Icons Outlined';
+  }
 }
