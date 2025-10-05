@@ -11,3 +11,7 @@ echo -e "${GREEN}Subindo o ambiente de desenvolvimento (Vite com Hot-Reload)...$
 # O -d (detach) roda os contêineres em segundo plano.
 docker-compose -f docker-compose.dev.yml up --build -d
 # docker-compose -f docker-compose.dev.yml up -d
+xdg-open http://localhost:5173/login 
+# &
+# sleep 2
+# npm run dev 

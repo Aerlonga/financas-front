@@ -38,10 +38,16 @@
 } */
 
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 /* Suas customizações (opcional) */
 @theme {
   --color-primary: #0d1b2a;
   --color-secondary: #00b4d8;
   --color-bg: #f5f7fa;
+}
+
+body {
+  font-family: 'Cy Grotesk Grand', 'Open Sans', ui-sans-serif, system-ui, sans-serif;
 }
