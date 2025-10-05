@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Lock, User } from "lucide-react";
-import imagemLogin from "../../../assets/imagemLogin.png";
-
+import { api } from "../../../service/api.js";
+import imagemLogin from '../../../assets/imagem-login.png';
 
 export default function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            await api.login(email, password);
+            navigate("/dashboard");
+        } catch {
+            alert("Usuário ou senha inválidos!");
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-white sm:bg-gray-50 p-4">
             <div
@@ -21,7 +40,7 @@ export default function Login() {
                 </button> */}
 
                 {/* Conteúdo */}
-                <form className="relative z-10 flex flex-col gap-6 text-white px-6 sm:px-8 py-10">
+                <form className="relative z-10 flex flex-col gap-6 text-white px-6 sm:px-8 py-10" onSubmit={handleSubmit}>
                     <h1 className="text-2xl font-bold text-center mb-4">
                         Acesse sua conta
                     </h1>
@@ -36,8 +55,11 @@ export default function Login() {
                             <input
                                 id="user"
                                 type="email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
                                 className="flex-1 bg-transparent text-gray-800 focus:outline-none"
                                 autoComplete="username"
+                                required
                             />
                         </div>
                     </div>
@@ -52,8 +74,11 @@ export default function Login() {
                             <input
                                 id="password"
                                 type="password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
                                 className="flex-1 bg-transparent text-gray-800 focus:outline-none"
                                 autoComplete="current-password"
+                                required
                             />
                         </div>
                         <a
@@ -68,8 +93,9 @@ export default function Login() {
                     <button
                         type="submit"
                         className="mt-2 bg-blue-600 py-3 rounded-full font-semibold uppercase shadow-lg hover:bg-blue-700 transition text-white cursor-pointer"
+                        disabled={loading}
                     >
-                        Entrar
+                        {loading ? "Entrando..." : "Entrar"}
                     </button>
 
                     {/* Divisor */}
@@ -82,7 +108,9 @@ export default function Login() {
                     {/* Google */}
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-3 bg-white text-gray-900 rounded-full py-2 font-semibold hover:bg-gray-100 transition shadow-md cursor-pointer"
+                        className="flex items-center justify-center gap-3 bg-white text-gray-900 rounded-full py-2 font-semibold 
+                        hover:bg-gray-100 hover:scale-105 transition-all duration-200 shadow-md cursor-pointer 
+                        active:scale-100"
                     >
                         <img
                             src="https://www.svgrepo.com/show/475656/google-color.svg"
@@ -95,12 +123,14 @@ export default function Login() {
                     {/* Facebook */}
                     <button
                         type="button"
-                        className="flex items-center justify-center gap-3 bg-[#1877F2] text-white rounded-full py-2 font-semibold hover:bg-[#166FE5] transition shadow-md cursor-pointer"
+                        className="flex items-center justify-center gap-3 bg-[#1877F2] text-white rounded-full py-2 font-semibold 
+                        hover:bg-[#166FE5] hover:scale-105 transition-all duration-200 shadow-md cursor-pointer 
+                        active:scale-100"
                     >
                         <img
                             src="https://www.svgrepo.com/show/475647/facebook-color.svg"
                             alt="Facebook"
-                            className="w-5 h-5"
+                            className="w-5 h-5 bg-white rounded-xs"
                         />
                         Entre com o Facebook
                     </button>
