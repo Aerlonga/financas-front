@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:20.19-alpine
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instala as dependências
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copia o resto do projeto
 COPY . .
